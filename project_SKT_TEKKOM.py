@@ -8,7 +8,7 @@ import json
 
 mqttc = mqtt.Client() # Define Connection
 #mqttc.connect("iot.eclipse.org", 1883, 60) # Do Connection
-mqttc.connect("192.168.43.250" ,1883)
+mqttc.connect("192.168.43.236" ,1883)
 
 
 GPIO.setmode(GPIO.BCM)
