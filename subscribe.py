@@ -11,8 +11,8 @@ sub = mqtt_client.Client()
 # Koneksikan ke broker
 sub.connect("192.168.43.236", 1883)
 
-cluster = Cluster(['192.168.43.250', '192.168.43.96', '192.168.43.73'])
-session = cluster.connect('cobates')
+cluster = Cluster(['192.168.43.171'])
+session = cluster.connect('dev')
 i=0
 
 # 2 Fungsi untuk handle message yang masuk
@@ -36,9 +36,9 @@ def handle_message(mqttc, obj, msg):
     global session
     global i
     
-    session.execute('INSERT INTO namatabel (id,status,waktu) VALUES ('+str(i)+',\''+str(status)+'\',\''+str(waktu)+'\');')
+    session.execute('INSERT INTO data (id,status,waktu) VALUES ('+str(i)+',\''+str(status)+'\',\''+str(waktu)+'\');')
     #session.execute(
-    #    'INSERT INTO namatabel (id,status,waktu) VALUES (8888,"aman","tanggal 30");')
+        #'INSERT INTO namatabel (id,status,waktu) VALUES (8888,"aman","tanggal 30");')
     i=i+1
 
 # Daftarkan fungsinya untuk event on_message

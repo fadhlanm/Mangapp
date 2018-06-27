@@ -36,7 +36,7 @@ radio.startListening()
 while (1):
         ackPL = [1]
         while not radio.available(0):
-                time.sleep(1/100)
+                time.sleep(1/1000)
 
         receivedMessage = []
         radio.read(receivedMessage, radio.getDynamicPayloadSize())
